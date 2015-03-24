@@ -6,13 +6,13 @@
 
 var React = require('react/addons');
 var dom = React.DOM;
+var cs = require('classnames');
 
 function createIcon(type) {
     var iconType = type;
     return React.createClass({
         render: function () {
             var type = iconType || this.props.type;
-            var cs = React.addons.classSet;
             var classes = {
                 'fa': true,
                 'fa-spin': this.props.spin,
@@ -29,16 +29,14 @@ function createIcon(type) {
 
             var className = cs(classes) + " " + (this.props.className || '');
 
-            return this.transferPropsTo(
-                dom.i({className: className}, this.props.children)
-                );
+            return dom.i(Object.assign({}, this.props, { className: className }),
+                 this.props.children);
         }
     });
 }
 
 var IconStack = React.createClass({
     render: function () {
-        var cs = React.addons.classSet;
         var classes = {
             'fa-stack': true
         }
@@ -46,23 +44,20 @@ var IconStack = React.createClass({
 
         var className = cs(classes) + " " + (this.props.className || '');
 
-        return this.transferPropsTo(
-            dom.span({className: className}, this.props.children)
-            );
+        return dom.span(Object.assign({}, this.props, { className: className }),
+                 this.props.children);
     }
 });
 
 var Ul = React.createClass({
     render: function () {
-        var cs = React.addons.classSet;
         var classes = {
             'fa-ul': true
         }
         var className = cs(classes) + " " + (this.props.className || '');
 
-        return this.transferPropsTo(
-            dom.ul({className: className}, this.props.children)
-            );
+        return dom.ul(Object.assign({}, this.props, { className: className }),
+                 this.props.children);
     }
 });
 
