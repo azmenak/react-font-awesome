@@ -5,7 +5,6 @@
 'use strict';
 
 var React = require('react/addons');
-var dom = React.DOM;
 var cs = require('classnames');
 
 function createIcon(type) {
@@ -29,8 +28,11 @@ function createIcon(type) {
 
             var className = cs(classes) + " " + (this.props.className || '');
 
-            return dom.i(Object.assign({}, this.props, { className: className }),
-                 this.props.children);
+            return (
+                <i {...this.props} className={className}>
+                    {this.props.children}
+                </i>
+            );
         }
     });
 }
@@ -44,8 +46,11 @@ var IconStack = React.createClass({
 
         var className = cs(classes) + " " + (this.props.className || '');
 
-        return dom.span(Object.assign({}, this.props, { className: className }),
-                 this.props.children);
+        return (
+            <span {...this.props} className={className}>
+                {this.props.children}
+            </span>
+        );
     }
 });
 
@@ -56,8 +61,11 @@ var Ul = React.createClass({
         }
         var className = cs(classes) + " " + (this.props.className || '');
 
-        return dom.ul(Object.assign({}, this.props, { className: className }),
-                 this.props.children);
+        return (
+            <ul {...this.props} className={className}>
+                {this.props.children}
+            </ul>
+        );
     }
 });
 
@@ -67,7 +75,7 @@ var Animate = React.createClass({
     getInitialState: function () {
         return {
             childCount: 0,
-            child: (dom.span({}, null))
+            child: (<span/>)
         };
     },
     componentWillMount: function () {
