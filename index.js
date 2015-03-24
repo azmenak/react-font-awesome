@@ -1,4 +1,3 @@
-/** @jsx React.DOM*/
 /**
  * Created by laiff on 03.09.14.
  */
