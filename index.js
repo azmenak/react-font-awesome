@@ -26,7 +26,7 @@ function createIcon(type) {
             classes['fa-stack-' + this.props.stack] = this.props.stack;
             classes['fa-align-' + this.props.align] = this.props.align;
 
-            var className = cx(classes) + " " + (this.props.className || '');
+            var className = cx(classes) + ' ' + (this.props.className || '');
 
             return React.createElement('i',
                 assign({}, this.props, { className: className }),
@@ -38,12 +38,10 @@ function createIcon(type) {
 
 var IconStack = React.createClass({
     render: function () {
-        var classes = {
-            'fa-stack': true
-        }
+        var classes = { 'fa-stack': true };
         classes['fa-' + this.props.size] = this.props.size;
 
-        var className = cx(classes) + " " + (this.props.className || '');
+        var className = cx(classes) + ' ' + (this.props.className || '');
 
         return React.createElement('span',
             assign({}, this.props, { className: className }),
@@ -54,10 +52,8 @@ var IconStack = React.createClass({
 
 var Ul = React.createClass({
     render: function () {
-        var classes = {
-            'fa-ul': true
-        }
-        var className = cx(classes) + " " + (this.props.className || '');
+        var classes = { 'fa-ul': true };
+        var className = cx(classes) + ' ' + (this.props.className || '');
 
         return React.createElement('ul',
             assign({}, this.props, { className: className }),
