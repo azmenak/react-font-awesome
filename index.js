@@ -4,7 +4,8 @@
 'use strict';
 
 var React = require('react/addons');
-var cs = require('classnames');
+var assign = require('object-assign');
+var cx = require('classnames');
 
 function createIcon(type) {
     var iconType = type;
@@ -25,12 +26,11 @@ function createIcon(type) {
             classes['fa-stack-' + this.props.stack] = this.props.stack;
             classes['fa-align-' + this.props.align] = this.props.align;
 
-            var className = cs(classes) + " " + (this.props.className || '');
+            var className = cx(classes) + " " + (this.props.className || '');
 
-            return (
-                <i {...this.props} className={className}>
-                    {this.props.children}
-                </i>
+            return React.createElement('i',
+                assign({}, this.props, { className: className }),
+                this.props.children
             );
         }
     });
@@ -43,12 +43,11 @@ var IconStack = React.createClass({
         }
         classes['fa-' + this.props.size] = this.props.size;
 
-        var className = cs(classes) + " " + (this.props.className || '');
+        var className = cx(classes) + " " + (this.props.className || '');
 
-        return (
-            <span {...this.props} className={className}>
-                {this.props.children}
-            </span>
+        return React.createElement('span',
+            assign({}, this.props, { className: className }),
+            this.props.children
         );
     }
 });
@@ -58,12 +57,11 @@ var Ul = React.createClass({
         var classes = {
             'fa-ul': true
         }
-        var className = cs(classes) + " " + (this.props.className || '');
+        var className = cx(classes) + " " + (this.props.className || '');
 
-        return (
-            <ul {...this.props} className={className}>
-                {this.props.children}
-            </ul>
+        return React.createElement('ul',
+            assign({}, this.props, { className: className }),
+            this.props.children
         );
     }
 });
@@ -74,7 +72,7 @@ var Animate = React.createClass({
     getInitialState: function () {
         return {
             childCount: 0,
-            child: (<span/>)
+            child: React.createElement('span')
         };
     },
     componentWillMount: function () {
