@@ -87,7 +87,7 @@ var Icon = createIcon();
 
 var Animate = React.createClass({
     propTypes: {
-      interval: React.this.PropTypes.number
+      interval: React.PropTypes.number
     },
     getInitialState: function () {
         return {
