@@ -25,6 +25,8 @@ function createIcon(type) {
             classes['fa-flip-' + this.props.flip] = this.props.flip;
             classes['fa-stack-' + this.props.stack] = this.props.stack;
             classes['fa-align-' + this.props.align] = this.props.align;
+            classes['fa-pull-' + this.props.pull] = this.props.pull;
+            classes['text-' + this.props.text] = this.props.text;
 
             var className = cx(classes) + ' ' + (this.props.className || '');
 
